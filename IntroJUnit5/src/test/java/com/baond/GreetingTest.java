@@ -1,0 +1,51 @@
+package com.baond;
+
+import org.junit.jupiter.api.*;
+
+/**
+ * Created by BaoND on 2025-03-19
+ */
+class GreetingTest {
+
+    private Greeting greeting;
+
+    /*before all is going to run for that specific test class, not for the whole test package*/
+    @BeforeAll
+    static void beforeClass(){
+        System.out.println("Before - I am only called Once!!!");
+    }
+
+    @BeforeEach
+    void setUp() {
+
+        System.out.println("In Before Each...");
+        greeting = new Greeting();
+    }
+
+    @Test
+    void helloWorld() {
+
+        System.out.println(this.greeting.helloWorld());
+    }
+
+    @Test
+    void testHelloWorld() {
+        System.out.println(this.greeting.helloWorld("BaoND"));
+    }
+
+    @Test
+    void testHelloWorld2() {
+        System.out.println(this.greeting.helloWorld("BaoNguyen"));
+    }
+
+
+    @AfterEach
+    void tearDown() {
+        System.out.println("In After Each...");
+    }
+
+    @AfterAll
+    static void afterClass(){
+        System.out.println("After - I am only called Once!!!");
+    }
+}
