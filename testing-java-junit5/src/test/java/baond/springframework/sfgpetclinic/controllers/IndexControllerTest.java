@@ -22,6 +22,7 @@ class IndexControllerTest {
     @BeforeEach
     void setUp() {
         controller = new IndexController();
+
     }
 
     @DisplayName("Test Proper View name is returned for index page")
