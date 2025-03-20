@@ -3,12 +3,14 @@ package baond.springframework.sfgpetclinic.services.springdatajpa;
 import baond.springframework.sfgpetclinic.model.Owner;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 /**
  * Created by BaoND on 2025-03-20
  */
 @Disabled(value = "Disabled until we have Mockito")
+@Tag("service")
 class OwnerSDJpaServiceTest {
 
     OwnerSDJpaService service;

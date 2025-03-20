@@ -8,6 +8,7 @@ import baond.springframework.sfgpetclinic.services.VetService;
 import baond.springframework.sfgpetclinic.services.map.SpecialityMapService;
 import baond.springframework.sfgpetclinic.services.map.VetMapService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
@@ -18,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Created by BaoND on 2025-03-20
  */
+@Tag("controllers")
 class VetControllerTest {
 
     VetService vetService;
