@@ -1,15 +1,10 @@
-# Introduction to JUnit 5 with Maven
+# JUnit Assertion
 
-This source code repository contains JUnit 5 test examples with Maven.
+https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html
 
-## Setup
-### Requirements
-* Should use Java 11 or higher. Previous versions of Java are un-tested.
-* Use Maven 3.5.2 or higher
 
-## Support
-For questions and help:
-* Please post in course
-* Or post in the Slack Community exclusive to the course.
 
-GitHub Issues will not be addressed.
+
+
+### Conditional Test Execution
+https://junit.org/junit5/docs/current/user-guide/#writing-tests-conditional-execution
