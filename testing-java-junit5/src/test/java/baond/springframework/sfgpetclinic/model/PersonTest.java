@@ -1,9 +1,7 @@
 package baond.springframework.sfgpetclinic.model;
 
 import baond.springframework.sfgpetclinic.ModelTests;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -39,16 +37,23 @@ class PersonTest implements ModelTests {
 
 
     /*by default:
-    * repetition 1 - of 10
-    * ...
-    * repetition 10 of 10
-    *
-    * we can modify this
-    * */
+     * repetition 1 - of 10
+     * ...
+     * repetition 10 of 10
+     *
+     * we can modify this
+     * */
+//    @Test - don't need this annotation as long  as we have @RepeatedTest
     @RepeatedTest(value = 10, name = "{displayName} : {currentRepetition} - {totalRepetitions}")
     @DisplayName("My Repeated Test")
-    @Test
-    void myRepeatedTest(){
+    void myRepeatedTest() {
         // to do - impl
+    }
+
+    /*TestInfo and RepetitionInfo are going to be injected into the test at runtime.*/
+    @RepeatedTest(5)
+    void myRepeatedTestWithDI(TestInfo testInfo, RepetitionInfo repetitionInfo, TestReporter testReporter) {
+        System.out.println(testInfo.getDisplayName());
+        System.out.println(repetitionInfo.getCurrentRepetition() + " - " + repetitionInfo.getTotalRepetitions());
     }
 }
