@@ -1,6 +1,8 @@
 package baond.springframework.sfgpetclinic.model;
 
 import baond.springframework.sfgpetclinic.ModelTests;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -33,5 +35,20 @@ class PersonTest implements ModelTests {
                 () -> assertEquals("Bao", person.getFirstName(), "First Name failed"),
                 () -> assertEquals("Nguyen", person.getLastName(), "Last Name failed"));
 
+    }
+
+
+    /*by default:
+    * repetition 1 - of 10
+    * ...
+    * repetition 10 of 10
+    *
+    * we can modify this
+    * */
+    @RepeatedTest(value = 10, name = "{displayName} : {currentRepetition} - {totalRepetitions}")
+    @DisplayName("My Repeated Test")
+    @Test
+    void myRepeatedTest(){
+        // to do - impl
     }
 }
