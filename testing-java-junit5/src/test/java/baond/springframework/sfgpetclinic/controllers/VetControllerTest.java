@@ -1,5 +1,6 @@
 package baond.springframework.sfgpetclinic.controllers;
 
+import baond.springframework.sfgpetclinic.ControllerTests;
 import baond.springframework.sfgpetclinic.fauxspring.Model;
 import baond.springframework.sfgpetclinic.fauxspring.ModelMapImpl;
 import baond.springframework.sfgpetclinic.model.Vet;
@@ -14,18 +15,18 @@ import org.junit.jupiter.api.Test;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Created by BaoND on 2025-03-20
  */
 @Tag("controllers")
-class VetControllerTest {
+class VetControllerTest implements ControllerTests {
 
     VetService vetService;
     SpecialtyService specialtyService;
 
     VetController vetController;
+
     @BeforeEach
     void setUp() {
         specialtyService = new SpecialityMapService();
