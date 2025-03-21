@@ -4,10 +4,9 @@ import baond.springframework.sfgpetclinic.ModelTests;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.EnumSource;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.*;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -61,8 +60,24 @@ class OwnerTest implements ModelTests {
 
     @DisplayName("CSV From File test")
     @ParameterizedTest(name = "{displayName} - {index}: {arguments}")
-    @CsvFileSource(resources = "/input.csv",numLinesToSkip = 1)
+    @CsvFileSource(resources = "/input.csv", numLinesToSkip = 1)
     void csvFromFileTest(String stateName, int val1, int val2) {
         System.out.println(stateName + " = " + val1 + ":" + val2);
+    }
+
+    @DisplayName("Method Provider test")
+    @ParameterizedTest(name = "{displayName} - {index}: {arguments}")
+    @MethodSource("getargs")
+    void fromMethodTest(String stateName, int val1, int val2) {
+        System.out.println(stateName + " = " + val1 + ":" + val2);
+    }
+
+
+    static Stream<Arguments> getargs() {
+        /*this method could be calling out a database, message queue, reading in like an XML file or a JSON file*/
+        return Stream.of(
+                Arguments.of("FL", 3, 8),
+                Arguments.of("OH", 89, 3),
+                Arguments.of("MI", 4, 10));
     }
 }
