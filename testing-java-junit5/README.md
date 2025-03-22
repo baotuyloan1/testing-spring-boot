@@ -48,3 +48,55 @@ https://junit.org/junit5/docs/current/user-guide/#writing-tests-conditional-exec
   - TestInfo: Provides information about the test name, method, test class, test tags
   - RepetitionInfo: Provides information about the test repetition
   - TestReporter: Allows you to publish runtime information for test reporting.
+
+
+
+
+# Mockito
+
+
+Mockito is the most popular mocking framework for testing Java
+Mocks (also known as Test Doubles) are alternatve implementations of objects to replace real objects in tests.
+Works well with Dependency Injection
+For the class under test, injected dependencies can be mocks.
+
+
+## Types of Mocks (aka Test Doubles)
+
+Dummy: Object used just to get the code to compile.
+
+Fake: An object that has an implementation, but not production ready.
+
+Stub: An obbject with pre-defined answers to method calls.
+
+Mock: An object with pre-defined answers to method calls, and has expections of execution. Can throw an exception if an expected invocation is detected.
+
+Spy: In Mockito Spies are Mock like wrappers around the actual object.
+
+
+## Important Terminology
+
+Verify:  Used to verify number of times a mocked method has been called.
+
+Argument Matcher: Matches arguments passed to Mocked Method & will allow or disallow
+
+Argyment Captor:  Captures argument passed to a Mocked Method. Allows you to perform assertions of what was passed into method.
+
+
+## Mockito Annorations
+
+@Mock: Used to create a mock
+
+@Spy:  Used to create a spy.
+
+@InjectMocks: Injkkect mocks/spys into a class under test.
+
+@Captor: Captures arguments to Mock.
+
+## Initializing mock
+
+There are 3 ways to initialize a mock
+
+1. Inline: Map mapMock = mock(Map.class);
+2. Annotation: @Mock; MockitoAnnotations.initMocks(this);
+3. JUnit Extention: @Mock; @ExtendWith(MockitoExtension.class)
