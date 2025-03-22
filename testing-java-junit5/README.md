@@ -100,3 +100,21 @@ There are 3 ways to initialize a mock
 1. Inline: Map mapMock = mock(Map.class);
 2. Annotation: @Mock; MockitoAnnotations.initMocks(this);
 3. JUnit Extention: @Mock; @ExtendWith(MockitoExtension.class)
+
+
+## Behavior Driven Development
+- Commonly abbreviated as BDD
+- BDD was established to help people learn TDD
+- BDD focuses on behavior vs "tests".
+- "Unit Tests" are referred to as specification. ie specifications of behavior.
+- Test method names should be sentences. ie saveValidID
+
+### Given when then
+
+BDD Tests are often written in a give-when-then context.
+
+Given: Setup of the test.
+
+When: Action of the tests. ie when method is called
+
+Then: Verification of expected results.
