@@ -1,6 +1,7 @@
 package baond.springframework.sfgpetclinic.model;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Visit extends BaseEntity {
 
@@ -43,5 +44,18 @@ public class Visit extends BaseEntity {
 
     public void setPet(Pet pet) {
         this.pet = pet;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Visit visit = (Visit) object;
+        return Objects.equals(date, visit.date) && Objects.equals(description, visit.description) && Objects.equals(pet, visit.pet);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(date, description, pet);
     }
 }

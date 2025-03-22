@@ -25,8 +25,19 @@ class SpecialitySDJpaServiceIT {
     @InjectMocks
     SpecialitySDJpaService service;
 
+
     @Test
-    void findByIdTest(){
+    void testDeleteByObject() {
+        Speciality speciality = new Speciality();
+
+        service.delete(speciality);
+
+        /*Argument Matchers*/
+        verify(specialtyRepository).delete(any(Speciality.class));
+    }
+
+    @Test
+    void findByIdTest() {
         Speciality speciality = new Speciality();
         speciality.setId(1l);
 
@@ -37,6 +48,9 @@ class SpecialitySDJpaServiceIT {
         assertThat(foundSpeciality).isNotNull();
 
         verify(specialtyRepository).findById(1l);
+
+        /*argument matcher*/
+        verify(specialtyRepository).findById(anyLong());
     }
 
     @Test
@@ -65,7 +79,7 @@ class SpecialitySDJpaServiceIT {
 
 
     @Test
-    void testDeleteByIdAtMost(){
+    void testDeleteByIdAtMost() {
         service.deleteById(1l);
         service.deleteById(1l);
 
@@ -75,15 +89,15 @@ class SpecialitySDJpaServiceIT {
 
 
     @Test
-    void deleteByIdNever(){
+    void deleteByIdNever() {
         service.deleteById(1l);
         service.deleteById(1l);
 
-        verify(specialtyRepository,never()).deleteById(2l);
+        verify(specialtyRepository, never()).deleteById(2l);
     }
 
     @Test
-    void testDelete(){
+    void testDelete() {
         service.delete(new Speciality());
     }
 }
